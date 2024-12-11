@@ -12,7 +12,7 @@ export default function PasswordFiled() {
                 type={showPass ? 'text' : 'password'}
                 name="password"
                 autoComplete="current-password"
-                className="w-full !ring-0 !shadow-none !bg-transparent border-0 outline-0 border-b border-blue-950 py-3 focus:border-primaryColor  transition-all pl-3"
+                className="w-full !ring-0 !shadow-none !bg-transparent border-0 outline-0 border-b border-blue-950 py-3 focus:border-[#0070c0]  transition-all pl-3"
                 placeholder="Password"
             />
             {showPass ? (
