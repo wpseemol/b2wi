@@ -26,7 +26,7 @@ export default function PeopleDetails({
     showContent =
         wordCount > shoWord
             ? showContent +
-              ` <button id='more-less-button-${contentId}' class='mt-2 text-primaryColor hover:underline dark:text-white sm:inline hidden'> ${
+              ` <button id='more-less-button-${contentId}' class='mt-2 text-primary hover:underline dark:text-white sm:inline hidden'> ${
                   isExpanded ? 'Read Less...' : 'Read More...'
               } </button>`
             : showContent;
@@ -70,7 +70,8 @@ export default function PeopleDetails({
             {wordCount > shoWord && (
                 <button
                     onClick={() => setIsExpanded((prev) => !prev)}
-                    className="mt-2 text-primaryColor hover:underline dark:text-white sm:hidden inline">
+                    className="mt-2 text-primary hover:underline dark:text-white sm:hidden inline"
+                >
                     {' '}
                     {isExpanded ? 'Read Less...' : 'Read More...'}{' '}
                 </button>

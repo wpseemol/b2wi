@@ -25,7 +25,7 @@ export default function SocialShare({
 
     return (
         <div className="flex items-center gap-4 mt-8">
-            <h3 className="font-semibold text-primaryColor">Share</h3>
+            <h3 className="font-semibold text-primary">Share</h3>
             <FacebookShareButton
                 url={pathname}
                 // quote={title} // Optional
@@ -50,7 +50,8 @@ export default function SocialShare({
             <PinterestShareButton
                 url={pathname}
                 media={`/images/people-behind/${content.imgUrl}`}
-                description={title}>
+                description={title}
+            >
                 {/* Pinterest Icon */}
                 <PinterestIcon size={40} round={true} />
             </PinterestShareButton>

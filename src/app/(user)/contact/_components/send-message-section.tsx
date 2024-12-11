@@ -8,7 +8,8 @@ export default function SendMessageSection() {
             </h2>
             <form
                 action=""
-                className="grid sm:grid-cols-2 grid-cols-1 gap-x-4 sm:gap-y-8 gap-y-3">
+                className="grid sm:grid-cols-2 grid-cols-1 gap-x-4 sm:gap-y-8 gap-y-3"
+            >
                 <input
                     type="text"
                     name="name"
@@ -43,10 +44,12 @@ export default function SendMessageSection() {
                     rows={4}
                     cols={50}
                     required
-                    className="sm:col-span-2 border focus-visible:outline-none p-3"></textarea>
+                    className="sm:col-span-2 border focus-visible:outline-none p-3"
+                ></textarea>
                 <button
                     type="submit"
-                    className="sm:col-span-2 border focus-visible:outline-none bg-primaryColor text-white py-3 font-medium ">
+                    className="sm:col-span-2 border focus-visible:outline-none bg-primary text-white py-3 font-medium "
+                >
                     Submit
                 </button>
             </form>

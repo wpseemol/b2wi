@@ -10,7 +10,7 @@ export default function SuccessStoriesPage() {
 
             <section className="text-center py-5 container mx-auto">
                 <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug">
-                    <span className="text-primaryColor">Success</span> Stories
+                    <span className="text-primary">Success</span> Stories
                 </h2>
                 {/* <p className="font-normal text-neutral-800/80">
                     Take advantage of the experiential-learning opportunities

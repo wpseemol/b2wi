@@ -11,7 +11,7 @@ export default function FaqPage() {
             <section className="text-center py-5 container mx-auto">
                 <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug">
                     Frequently Asked{' '}
-                    <span className="text-primaryColor">Questions</span>
+                    <span className="text-primary">Questions</span>
                 </h2>
                 {/* <p className="font-normal text-neutral-800/80">
                     Take advantage of the experiential-learning opportunities

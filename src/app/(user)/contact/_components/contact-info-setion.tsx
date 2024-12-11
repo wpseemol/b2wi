@@ -4,7 +4,7 @@ import { TfiLocationPin } from 'react-icons/tfi';
 
 export default function ContactInfoSection() {
     return (
-        <div className="bg-primaryColor p-5  pr-0 h-full mx-2 sm:mx-0">
+        <div className="bg-primary p-5  pr-0 h-full mx-2 sm:mx-0">
             <div className="text-white space-y-2">
                 <h2 className="text-[28px] font-bold">Contact Info</h2>
                 {/* location  */}

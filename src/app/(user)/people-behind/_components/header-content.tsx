@@ -4,7 +4,7 @@ export default function HeaderContent() {
             <div className=" flex flex-col items-center">
                 <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug text-center mb-4">
                     People Behind
-                    <span className="text-primaryColor"> B2WI</span>
+                    <span className="text-primary"> B2WI</span>
                 </h2>
                 <p className="text-center text-lg text-neutral-900/85 dark:text-neutral-100/90 ">
                     B2W is backed by a team of passionate educators and

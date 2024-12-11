@@ -23,7 +23,7 @@ export default function AboutTabSection() {
     return (
         <section className="my-10">
             <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug text-center mb-4">
-                Our<span className="text-primaryColor"> Story</span>
+                Our<span className="text-primary"> Story</span>
             </h2>
 
             <div className="flex items-center sm:-mx-4 mx-0 justify-center sm:flex-nowrap flex-wrap  dark:text-gray-800 border-b border-black relative z-0 dark:bg-transparent">
@@ -36,7 +36,8 @@ export default function AboutTabSection() {
                                 selectedStory === story.id
                                     ? 'border border-black border-b-0 rounded-t-lg font-semibold'
                                     : 'border border-transparent'
-                            } flex items-center flex-shrink-0 sm:px-5 px-2 py-3 space-x-2 dark:text-gray-400 relative sm:text-base text-sm `}>
+                            } flex items-center flex-shrink-0 sm:px-5 px-2 py-3 space-x-2 dark:text-gray-400 relative sm:text-base text-sm `}
+                        >
                             {selectedStory === story.id && (
                                 <span className="absolute w-full bg-white dark:bg-[#030712] h-2 -bottom-1 left-0 z-10"></span>
                             )}

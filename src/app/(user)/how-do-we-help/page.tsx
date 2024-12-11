@@ -12,7 +12,7 @@ export default function HowDoWeHelpPage() {
             <section className="text-center py-5 mb-5 container mx-auto">
                 <h2 className="text-neutral-900/85 sm:text-[52px] text-3xl font-bold leading-snug">
                     How Do We
-                    <span className="text-primaryColor"> Help</span>
+                    <span className="text-primary"> Help</span>
                 </h2>
                 <p className="font-normal text-neutral-800/80">
                     At B2W, we take a holistic approach to ensure you receive

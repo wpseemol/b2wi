@@ -31,8 +31,9 @@ export default function PeopleBehindCart({
                 <div className="mt-3">
                     <Link
                         href={details.socialLink}
-                        className="hover:scale-110 inline-block duration-150 group">
-                        <FaLinkedinIn className="text-primaryColor text-2xl group-hover:drop-shadow-2xl" />
+                        className="hover:scale-110 inline-block duration-150 group"
+                    >
+                        <FaLinkedinIn className="text-primary text-2xl group-hover:drop-shadow-2xl" />
                     </Link>
                 </div>
             )}
