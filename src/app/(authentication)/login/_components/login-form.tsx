@@ -17,7 +17,7 @@ export default function LoginForm() {
                     type="email"
                     name="email"
                     autoComplete="username"
-                    className="!bg-transparent !ring-0 !shadow-none border-0 outline-0 border-b border-blue-950 border-black-normal py-3 pl-3 focus:border-[#0070c0] transition-all"
+                    className="!bg-transparent !ring-0 !shadow-none border-0 outline-0 border-b border-blue-950 border-black-normal py-3 pl-3 focus:border-primary transition-all"
                     placeholder="Email address"
                 />
 
@@ -25,7 +25,7 @@ export default function LoginForm() {
                 <div className="text-right my-4">
                     <Link
                         href={'/#'}
-                        className="text-[#0070c0] transition-colors hover:text-primary-500-dark"
+                        className="text-primary transition-colors hover:text-primary-500-dark"
                     >
                         Forgot Password?
                     </Link>

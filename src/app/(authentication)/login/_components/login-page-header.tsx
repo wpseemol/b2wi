@@ -9,7 +9,7 @@ export default function LoginPageHeader() {
             <div className="mb-8">
                 Don’t have an account?{' '}
                 <Link
-                    className="text-primaryColor transition-colors hover:text-primary-500-dark"
+                    className="text-primary transition-colors hover:text-primary-500-dark"
                     href={'/signup'}
                 >
                     Sign Up
