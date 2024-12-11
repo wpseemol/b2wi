@@ -8,11 +8,5 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (
-        <>
-            <header>login header</header>
-            {children}
-            <header>login footer</header>
-        </>
-    );
+    return <>{children}</>;
 }
