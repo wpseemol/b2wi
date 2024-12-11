@@ -14,7 +14,8 @@ export default function MobileNavMenu() {
                 className="group text-2xl md:text-neutral-100"
                 onClick={() => {
                     setIsOpen(!isOpen);
-                }}>
+                }}
+            >
                 {isOpen ? <IoClose /> : <IoMenu className="" />}
             </button>
             <ul
@@ -25,19 +26,22 @@ export default function MobileNavMenu() {
                  isOpen
                      ? 'border-x border-b h-fit shadow rounded-b duration-200'
                      : 'h-0 p-0 duration-200'
-             }`}>
+             }`}
+            >
                 {isOpen &&
                     nevMenus.map((menu) => (
                         <MyLink
                             key={menu.id}
                             href={menu.slug}
-                            className="hover:text-primaryColor "
-                            activeClassName="text-primaryColor translate-x-3 ">
+                            className="hover:text-primary "
+                            activeClassName="text-primary translate-x-3 "
+                        >
                             <li
                                 onClick={() => {
                                     setIsOpen(false);
                                 }}
-                                className="pl-3 border-b hover:translate-x-3 duration-150 py-2">
+                                className="pl-3 border-b hover:translate-x-3 duration-150 py-2"
+                            >
                                 {menu.name}
                             </li>
                         </MyLink>

@@ -33,23 +33,24 @@ export default function Footer() {
                 {/* site inform */}
                 {/* some link */}
                 <div className="xl:w-[calc(25%-3.5rem)] md:w-1/4 w-full xl:px-5">
-                    <h2 className="text-2xl font-medium border-l-4 border-primaryColor pl-3 md:mb-5 mb-2 w-fit md:w-full mx-auto md:mx-0">
+                    <h2 className="text-2xl font-medium border-l-4 border-primary pl-3 md:mb-5 mb-2 w-fit md:w-full mx-auto md:mx-0">
                         Our Partners
                     </h2>
                     <ul className="space-y-2 capitalize text-center md:text-left">
-                        <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link href="https://bepro.com.bd/" target="_blank">
                                 BePro
                             </Link>
                         </li>
-                        <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link
                                 href="https://globaleduexp.com/"
-                                target="_blank">
+                                target="_blank"
+                            >
                                 GEE
                             </Link>
                         </li>
-                        <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link href="https://fly8.info/" target="_blank">
                                 FLY8
                             </Link>
@@ -60,26 +61,26 @@ export default function Footer() {
 
                 {/* Quick Links */}
                 <div className="xl:w-[calc(25%-3.5rem)] md:w-1/4 w-full xl:px-5">
-                    <h2 className="text-2xl font-medium border-l-4 border-primaryColor pl-3 md:mb-5 mb-2 w-fit mx-auto md:w-full md:mx-0">
+                    <h2 className="text-2xl font-medium border-l-4 border-primary pl-3 md:mb-5 mb-2 w-fit mx-auto md:w-full md:mx-0">
                         Useful Links
                     </h2>
                     <ul className="space-y-2 capitalize md:text-left text-center">
-                        <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link href="/about-us">About Us </Link>
                         </li>
-                        <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link href="/faq">FAQs </Link>
                         </li>
-                        <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link href="#">Privacy Policy</Link>
                         </li>
-                        {/* <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        {/* <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link href="#">How do we help</Link>
                         </li>
-                        <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link href="#">People behind</Link>
                         </li>
-                        <li className="hover:translate-x-2 hover:text-primaryColor duration-150">
+                        <li className="hover:translate-x-2 hover:text-primary duration-150">
                             <Link href="#">Success story</Link>
                         </li> */}
                     </ul>
@@ -89,7 +90,7 @@ export default function Footer() {
                 {/* Quick Links */}
                 <div className="xl:w-[calc(25%-3.5rem)] md:w-1/4 w-full xl:px-5">
                     <div className="">
-                        <h2 className="text-2xl font-medium pl-3 mb-5 border-l-4 border-primaryColor mx-auto w-fit md:mx-0 ">
+                        <h2 className="text-2xl font-medium pl-3 mb-5 border-l-4 border-primary mx-auto w-fit md:mx-0 ">
                             Contact Us
                         </h2>
                         <ul className="font-thin space-y-2 mx-auto md:mx-0 md:w-full">
@@ -97,7 +98,8 @@ export default function Footer() {
                                 <Link
                                     href="mailto:⁠b2winitiative@gmail.com"
                                     target="_blank"
-                                    className="flex items-center gap-3">
+                                    className="flex items-center gap-3"
+                                >
                                     <VscMail className="group-hover:scale-125 group-hover:shadow-md duration-150" />{' '}
                                     <p className="font-thin text-sm">
                                         ⁠b2winitiative@gmail.com
@@ -108,7 +110,8 @@ export default function Footer() {
                                 <Link
                                     href="https://www.google.com/maps/dir//House+No-6,+Road+No+-+2%2FB,+Baridhara+J+Block,+Dhaka+1212/@23.7953511,90.342224,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3755c73a91c0919d:0xd83a57adfbb498bb!2m2!1d90.4246256!2d23.795373?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D"
                                     target="_blank"
-                                    className="flex items-center gap-3">
+                                    className="flex items-center gap-3"
+                                >
                                     <MdLocationPin className="group-hover:scale-125 group-hover:shadow-md duration-150" />{' '}
                                     <p className="font-thin text-sm">
                                         Baridhara, Dhaka, Bangladesh
@@ -119,7 +122,8 @@ export default function Footer() {
                                 <Link
                                     href="tel:+8801685456708"
                                     target="_blank"
-                                    className="flex items-center gap-3">
+                                    className="flex items-center gap-3"
+                                >
                                     <HiPhone className="group-hover:scale-125 group-hover:shadow-md duration-150" />{' '}
                                     <p className="font-thin text-sm">
                                         +8801685456708
@@ -157,7 +161,8 @@ export default function Footer() {
                     <Link
                         href={'https://it.ysibangla.com/'}
                         target="_blank"
-                        className="underline underline-offset-2">
+                        className="underline underline-offset-2"
+                    >
                         YSI Bangla Ltd.
                     </Link>
                 </p>

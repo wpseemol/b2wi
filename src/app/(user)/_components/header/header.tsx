@@ -14,7 +14,7 @@ export default function Header() {
                 <TopContactInfo />
             </section>
 
-            <section className="bg-gradient-to-r from-[#2d3544] to-[#0165ac] border-y border-primaryColor py-3 dark:bg-gradient-to-r dark:from-[#224a94] dark:to-[#17174b] md:px-3 px-2 ">
+            <section className="bg-gradient-to-r from-[#2d3544] to-[#0165ac] border-y border-primary py-3 dark:bg-gradient-to-r dark:from-[#224a94] dark:to-[#17174b] md:px-3 px-2 ">
                 <NavMenu />
             </section>
         </header>
