@@ -1,5 +1,6 @@
 'use client';
-import { ThemeProvider } from './ui/theme-provider';
+
+import { ThemeProvider } from './theme-provider';
 
 export default function Providers({
     children,
