@@ -1,5 +1,5 @@
-import SocialShare from '@/app/success-stories/[storiesSlug]/_components/social-share';
 import BreadcrumbSecondLink from '@/components/breadcrumb-seceond-link';
+import SocialShare from '@/components/social-share';
 import { hackContents } from '@/lib/db/hacks-data';
 import HackDetails from './_components/hack-details';
 import HackRelatedContents from './_components/hack-related-contents';
@@ -22,7 +22,8 @@ export default async function HackSingePage({
                     className={` bg-cover bg-center h-64 sm:h-72 relative z-10`}
                     style={{
                         backgroundImage: `url("/images/hack/${hackContent?.imgUrl}")`,
-                    }}>
+                    }}
+                >
                     <div className="container mx-auto ">
                         <div className="bg-slate-200/20 w-fit p-5 pt-0 rounded backdrop-blur-sm">
                             {hackContent?.title && (

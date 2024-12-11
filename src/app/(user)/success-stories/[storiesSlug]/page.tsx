@@ -1,7 +1,7 @@
 import BreadcrumbSecondLink from '@/components/breadcrumb-seceond-link';
+import SocialShare from '@/components/social-share';
 import { successStories } from '@/lib/db/success-stories';
 import MoreContent from './_components/more-content';
-import SocialShare from './_components/social-share';
 import StoriesSingleContent from './_components/stories-single-content';
 
 export default async function StoriesSinglePage({
@@ -21,7 +21,8 @@ export default async function StoriesSinglePage({
                 className={` bg-cover bg-center h-64 sm:h-72 relative z-10`}
                 style={{
                     backgroundImage: `url("/images/success-stories/${storiesData?.imgUrl}")`,
-                }}>
+                }}
+            >
                 <div className="container mx-auto ">
                     <div className="bg-slate-200/20 w-fit p-5 pt-0 rounded backdrop-blur-sm">
                         {storiesData?.title && (
