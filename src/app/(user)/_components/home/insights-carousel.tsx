@@ -54,7 +54,8 @@ export default function InsightsCarousel() {
             <div
                 className={`insights-carousel relative w-full ${
                     loading ? 'opacity-0' : ''
-                }`}>
+                }`}
+            >
                 {/* Slides */}
                 <div className="overflow-hidden" data-glide-el="track">
                     <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
@@ -69,17 +70,20 @@ export default function InsightsCarousel() {
                 {/* Indicators */}
                 <div
                     className="flex w-full items-center justify-center gap-2 mt-4"
-                    data-glide-el="controls[nav]">
+                    data-glide-el="controls[nav]"
+                >
                     {carouserContentArray.map((data, index) => (
                         <button
                             key={index}
                             className={`group p-2 `}
                             data-glide-dir={`=${index}`}
-                            aria-label={`goto slide ${index + 1}`}>
+                            aria-label={`goto slide ${index + 1}`}
+                        >
                             <span
-                                className={`block h-2 w-2 rounded-full transition-colors duration-300 overflow-hidden ring-1 ring-primaryColor ${
+                                className={`block h-2 w-2 rounded-full transition-colors duration-300 overflow-hidden ring-1 ring-primary ${
                                     currentIndex === index ? 'bg-[#013458]' : ''
-                                }`}></span>
+                                }`}
+                            ></span>
                         </button>
                     ))}
                 </div>

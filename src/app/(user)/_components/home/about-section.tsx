@@ -6,7 +6,8 @@ export default function AboutSection() {
     return (
         <section
             className="container mx-auto md:px-0 px-2 flex 
-        justify-center items-center lg:flex-nowrap flex-wrap md:gap-10 gap-5 mb-8">
+        justify-center items-center lg:flex-nowrap flex-wrap md:gap-10 gap-5 mb-8"
+        >
             <div className="md:w-[30rem] flex justify-end">
                 <figure className="w-full">
                     <Image
@@ -40,14 +41,15 @@ export default function AboutSection() {
                         <Button
                             size="lg"
                             variant="default"
-                            className="bg-primaryColor/80 h-12 hover:bg-neutral-100/90 w-fit dark:text-neutral-100/80 text-neutral-100 hover:text-neutral-900/90 border border-[#0e588d] hover:border-neutral-900/90 ">
+                            className="bg-primary/80 h-12 hover:bg-neutral-100/90 w-fit dark:text-neutral-100/80 text-neutral-100 hover:text-neutral-900/90 border border-[#0e588d] hover:border-neutral-900/90 "
+                        >
                             Free Assessment
                         </Button>
                     </Link>
                     {/* <Button
                         size="lg"
                         variant="outline"
-                        className="border-primaryColor h-12 hover:bg-[#005694] hover:text-neutral-100/80">
+                        className="border-primary h-12 hover:bg-[#005694] hover:text-neutral-100/80">
                         Training Programs
                     </Button> */}
                 </div>

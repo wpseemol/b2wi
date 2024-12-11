@@ -12,7 +12,8 @@ export default function EventWorkshop() {
                     <Button
                         size="lg"
                         variant="outline"
-                        className="border-primaryColor h-12 hover:bg-[#005694] hover:text-neutral-100/80 bg-transparent">
+                        className="border-primary h-12 hover:bg-[#005694] hover:text-neutral-100/80 bg-transparent"
+                    >
                         View All Events
                     </Button>
                 </div>
@@ -21,7 +22,8 @@ export default function EventWorkshop() {
                     {cartInfos.map((cardData) => (
                         <div
                             key={cardData.id}
-                            className="h-[400px] bg-[#f8ffff] rounded-lg relative px-9 py-12 flex flex-col justify-between">
+                            className="h-[400px] bg-[#f8ffff] rounded-lg relative px-9 py-12 flex flex-col justify-between"
+                        >
                             <div className="relative z-20 space-y-4">
                                 <h2 className="text-4xl font-bold text-[#01406d] mb-10">
                                     {cardData.title}
@@ -47,7 +49,7 @@ export default function EventWorkshop() {
                     ))}
                 </div>
             </div>
-            <div className="bg-white dark:bg-[#030712] dark:border-primaryColor rounded-xl px-8 py-10 flex md:flex-row flex-col md:gap-0 gap-3 justify-between absolute md:-bottom-[4rem] -bottom-[8rem] border shadow-2xl w-full container left-1/2 transform -translate-x-1/2 z-20">
+            <div className="bg-white dark:bg-[#030712] dark:border-primary rounded-xl px-8 py-10 flex md:flex-row flex-col md:gap-0 gap-3 justify-between absolute md:-bottom-[4rem] -bottom-[8rem] border shadow-2xl w-full container left-1/2 transform -translate-x-1/2 z-20">
                 <p className="font-semibold text-neutral-800/95 dark:text-neutral-100/80 ">
                     Unlock your full potential with Empower Minds, where
                     innovation, empowerment,
@@ -56,7 +58,8 @@ export default function EventWorkshop() {
                 <Button
                     size="lg"
                     variant="outline"
-                    className="border-primaryColor h-12 bg-[#005694] text-neutral-100/80 ">
+                    className="border-primary h-12 bg-[#005694] text-neutral-100/80 "
+                >
                     View All Events
                 </Button>
             </div>

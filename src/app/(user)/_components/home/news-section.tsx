@@ -13,7 +13,8 @@ export default function NewSection() {
                     <h2
                         className="md:text-[40px] text-4xl font-bold text-[#004679]
                     dark:text-neutral-100
-                    ">
+                    "
+                    >
                         B2WI In the News
                     </h2>
                 </div>
@@ -22,7 +23,8 @@ export default function NewSection() {
                     <Button
                         size="lg"
                         variant="outline"
-                        className="border-primaryColor h-12 hover:bg-[#005694] hover:text-neutral-100/80">
+                        className="border-primary h-12 hover:bg-[#005694] hover:text-neutral-100/80"
+                    >
                         View All
                     </Button>
                 </Link>

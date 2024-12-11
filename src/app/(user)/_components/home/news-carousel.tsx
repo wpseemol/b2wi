@@ -56,14 +56,16 @@ export default function NewsCarousel() {
             <div
                 className={`glide-05 relative w-full ${
                     loading ? 'opacity-0' : ''
-                }`}>
+                }`}
+            >
                 {/* Slides */}
                 <div className="overflow-hidden" data-glide-el="track">
                     <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
                         {carouselContentArray.map((news) => (
                             <li
                                 key={news.id}
-                                className="group relative border rounded-lg">
+                                className="group relative border rounded-lg"
+                            >
                                 <figure className="w-full sm:h-[280px] h-[200px] rounded-lg">
                                     <Image
                                         width={350}
@@ -82,7 +84,8 @@ export default function NewsCarousel() {
                                         <h3>
                                             <Link
                                                 href={news.slug}
-                                                target="_blank">
+                                                target="_blank"
+                                            >
                                                 {news.publishedIn}
                                             </Link>
                                         </h3>
@@ -112,17 +115,20 @@ export default function NewsCarousel() {
                 {/* Indicators */}
                 <div
                     className="flex w-full items-center justify-center gap-2 mt-4"
-                    data-glide-el="controls[nav]">
+                    data-glide-el="controls[nav]"
+                >
                     {carouselContentArray.map((data, index) => (
                         <button
                             key={index}
                             className={`group p-2 `}
                             data-glide-dir={`=${index}`}
-                            aria-label={`goto slide ${index + 1}`}>
+                            aria-label={`goto slide ${index + 1}`}
+                        >
                             <span
-                                className={`block h-2 w-2 rounded-full transition-colors duration-300 overflow-hidden ring-1 ring-primaryColor ${
+                                className={`block h-2 w-2 rounded-full transition-colors duration-300 overflow-hidden ring-1 ring-primary ${
                                     currentIndex === index ? 'bg-[#013458]' : ''
-                                }`}></span>
+                                }`}
+                            ></span>
                         </button>
                     ))}
                 </div>

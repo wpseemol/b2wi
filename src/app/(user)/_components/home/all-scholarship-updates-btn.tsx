@@ -16,7 +16,8 @@ export default function AllScholarshipUpdatesBtn({
             onClick={() => route.push('/scholarships')}
             size="lg"
             variant="outline"
-            className="border-primaryColor h-12 hover:bg-[#005694] hover:text-neutral-100/80">
+            className="border-primary h-12 hover:bg-[#005694] hover:text-neutral-100/80"
+        >
             {children}
         </Button>
     );

@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function BrandingSection() {
     return (
         <section className="flex justify-center md:flex-row flex-col mb-8">
-            <div className=" min-h-[95px] bg-primaryColor  md:w-1/2 flex items-center md:justify-end justify-center md:pr-5 relative ">
+            <div className=" min-h-[95px] bg-primary  md:w-1/2 flex items-center md:justify-end justify-center md:pr-5 relative ">
                 <div className="flex md:justify-end gap-3 justify-center w-full  md:pl-8 pl-2">
                     <span className="w-5 h-5 mt-1 ">
                         <PointerIcon />
@@ -18,7 +18,7 @@ export default function BrandingSection() {
                     </p>
                     <span className=" absolute bottom-2 right-8 ">
                         <WorldIcon />
-                        <span className="absolute top-0 left-0  w-full h-full bg-primaryColor/55"></span>
+                        <span className="absolute top-0 left-0  w-full h-full bg-primary/55"></span>
                     </span>
                 </div>
             </div>

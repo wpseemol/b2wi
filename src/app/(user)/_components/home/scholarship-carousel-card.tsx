@@ -13,7 +13,8 @@ export default function ScholarshipCarouselCard({
     return (
         <li
             key={content.id}
-            className="group border border-neutral-500/10 rounded-lg ">
+            className="group border border-neutral-500/10 rounded-lg "
+        >
             <figure className="w-full sm:h-[280px] h-[200px] rounded-t-lg overflow-hidden">
                 <Link href={hrefSlug}>
                     <Image
@@ -35,7 +36,7 @@ export default function ScholarshipCarouselCard({
                         <h3>{content.publishedIn}</h3>
                     </Link>
                 </div>
-                <p className="text-primaryColor/70 dark:text-neutral-300 text-sm mb-1">
+                <p className="text-primary/70 dark:text-neutral-300 text-sm mb-1">
                     <Link href={hrefSlug}>{content.publishedOn}</Link>
                 </p>
                 <h2 className="text-base font-semibold text-[#002c4b] dark:text-neutral-100 group-hover:underline duration-150 ">
@@ -43,7 +44,7 @@ export default function ScholarshipCarouselCard({
                 </h2>
 
                 <Link href={hrefSlug}>
-                    <button className="mt-4 text-base text-neutral-700/75 dark:text-neutral-500 flex items-center gap-1 group-hover:gap-4 duration-150 bg-primaryColor text-white px-3 py-2 rounded">
+                    <button className="mt-4 text-base text-neutral-700/75 dark:text-neutral-500 flex items-center gap-1 group-hover:gap-4 duration-150 bg-primary text-white px-3 py-2 rounded">
                         Read More{' '}
                         <span className="text-2xl">
                             <BsArrowRightShort />

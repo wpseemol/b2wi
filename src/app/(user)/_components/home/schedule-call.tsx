@@ -10,7 +10,7 @@ export default function ScheduleCall() {
                 />
                 {/* <button
                     type="submit"
-                    className="flex justify-center items-center bg-primaryColor/70 hover:bg-primaryColor duration-150 px-6 py-4 rounded-xl gap-1 font-medium">
+                    className="flex justify-center items-center bg-primary/70 hover:bg-primary duration-150 px-6 py-4 rounded-xl gap-1 font-medium">
                     <MdPhone className="text-lg" /> Schedule A Call
                 </button> */}
             </div>
