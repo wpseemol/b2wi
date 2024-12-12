@@ -18,6 +18,10 @@ export default {
                 xl: '1200px',
                 '2xl': '1400px',
             },
+            backgroundImage: {
+                'custom-gradient':
+                    'linear-gradient(rgb(1 30 51 / 17%) 35%, rgb(86 86 126 / 35%) 40%, rgb(0 63 108) 95%)',
+            },
             colors: {
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
