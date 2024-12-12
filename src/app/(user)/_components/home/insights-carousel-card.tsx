@@ -45,7 +45,7 @@ export default function InsightsCarouselCard({
                 </Link>
 
                 <Link href={hrefSlug}>
-                    <button className="mt-4 text-base text-primary flex items-center gap-1 group-hover:gap-3 duration-150 border px-3 py-2 rounded-md bg-neutral-100/90 border-primary">
+                    <button className="mt-4 text-base text-primary flex items-center gap-1 group-hover:gap-3 duration-150 border px-3 py-2 rounded-md bg-white/90 dark:bg-white  border-primary">
                         Read More{' '}
                         <span className="">
                             <BsArrowRightShort className="text-2xl" />

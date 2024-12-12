@@ -27,7 +27,7 @@ export default function AboutSection() {
                     Develop leadership, efficiency, productivity, and <br />{' '}
                     excellence through our targeted training <br /> programs.
                 </h3> */}
-                <div className="text-neutral-700 -space-y-2 sm:text-left text-center">
+                <div className="text-neutral-700 dark:text-blue-200 -space-y-2 sm:text-left text-center">
                     <p className="text-lg font-normal">
                         The Bangladesh 2 the World (B2W) Initiative is a
                         passionate commitment to empowering Bangladeshi talent

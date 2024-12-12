@@ -21,7 +21,7 @@ export default function MobileNavMenu() {
             <ul
                 className={`absolute bg-slate-50 dark:bg-slate-900 
              md:top-[2.5rem] top-[3rem] w-[12rem] overflow-hidden duration-200 md:left-20 
-             right-10 z-[99] origin-bottom
+             right-10 z-[99] origin-bottom 
              ${
                  isOpen
                      ? 'border-x border-b h-fit shadow rounded-b duration-200'
@@ -33,8 +33,8 @@ export default function MobileNavMenu() {
                         <MyLink
                             key={menu.id}
                             href={menu.slug}
-                            className="hover:text-primary "
-                            activeClassName="text-primary translate-x-3 "
+                            className="hover:text-primary dark:hover:text-[#83beeb]"
+                            activeClassName="text-primary dark:text-[#83beeb] translate-x-2 "
                         >
                             <li
                                 onClick={() => {

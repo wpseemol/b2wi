@@ -80,8 +80,10 @@ export default function InsightsCarousel() {
                             aria-label={`goto slide ${index + 1}`}
                         >
                             <span
-                                className={`block h-2 w-2 rounded-full transition-colors duration-300 overflow-hidden ring-1 ring-primary ${
-                                    currentIndex === index ? 'bg-[#013458]' : ''
+                                className={`block h-2 w-2 rounded-full transition-colors duration-300 overflow-hidden ring-1  ${
+                                    currentIndex === index
+                                        ? 'bg-[#021a2c] dark:bg-white dark:ring-white ring-[#021a2c]'
+                                        : 'ring-white'
                                 }`}
                             ></span>
                         </button>
