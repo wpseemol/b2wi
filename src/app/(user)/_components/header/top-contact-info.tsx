@@ -1,8 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { GoMail } from 'react-icons/go';
 import { PiPhoneCallLight } from 'react-icons/pi';
-import { TfiLocationPin } from 'react-icons/tfi';
 import MobileNavMenu from './mobile-nav-menu';
 
 export default function TopContactInfo() {
@@ -45,7 +43,8 @@ export default function TopContactInfo() {
                         </div>
                     </Link>
                 </li>
-                <li>
+
+                {/* <li>
                     <Link
                         href={`mailto:${'⁠b2winitiative@gmail.com'}`}
                         className="flex items-center gap-2 text-primary hover:text-[#0a2f49] dark:text-[#a2bdd1] dark:hover:text-[#a3d7fc] duration-100 group"
@@ -78,7 +77,7 @@ export default function TopContactInfo() {
                             <p className="text-xs">Find Us</p>
                         </div>
                     </Link>
-                </li>
+                </li> */}
             </ul>
             {/* menu button section  */}
             <section className="md:hidden ">
