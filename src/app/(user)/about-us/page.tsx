@@ -6,7 +6,7 @@ export default function AboutUsPage() {
         <main className="container mx-auto">
             <BreadcrumbFirstLink currentPageName="About" />
 
-            <section className="space-y-5 mb-14 w-[70%] mx-auto">
+            <section className="space-y-5 mb-14 w-[75%] mx-auto">
                 <div className="text-center">
                     <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug text-center mb-3">
                         Our<span className="text-primary"> Story</span>

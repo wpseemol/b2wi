@@ -17,10 +17,10 @@ export default function MissionVisionAccordion() {
         >
             {ourMissionVisionContent.map((content) => (
                 <AccordionItem value={`item-${content.id}`} key={content.id}>
-                    <AccordionTrigger className="mr-5 text-base">
+                    <AccordionTrigger className="md:mr-5 text-lg font-semibold">
                         {content.title}
                     </AccordionTrigger>
-                    <AccordionContent className="text-base">
+                    <AccordionContent className="text-base md:mr-3">
                         {content.description}
                     </AccordionContent>
                 </AccordionItem>
