@@ -16,7 +16,11 @@ export default function MissionVisionAccordion() {
             className="md:w-[45rem] w-full mx-auto px-2 sm:px-0"
         >
             {ourMissionVisionContent.map((content) => (
-                <AccordionItem value={`item-${content.id}`} key={content.id}>
+                <AccordionItem
+                    value={`item-${content.id}`}
+                    key={content.id}
+                    className="md:px-0 px-2"
+                >
                     <AccordionTrigger className="md:mr-5 text-lg font-semibold">
                         {content.title}
                     </AccordionTrigger>

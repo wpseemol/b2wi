@@ -6,7 +6,7 @@ export default function AboutUsPage() {
         <main className="container mx-auto">
             <BreadcrumbFirstLink currentPageName="About" />
 
-            <section className="text-center w-[75%] mb-10 mx-auto">
+            <section className="text-center w-[75%] mb-10 mx-auto md:px-0 px-2">
                 <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug text-center mb-3">
                     Our
                     <span className="text-primary dark:text-white"> Story</span>
@@ -20,14 +20,14 @@ export default function AboutUsPage() {
                 </p>
             </section>
 
-            <section className="space-y-10 mb-14 mx-auto">
-                <div className="flex gap-x-3 items-center">
+            <section className="space-y-10 mb-14 mx-auto md:px-0 px-2">
+                <div className="flex md:flex-row flex-col gap-x-6 items-center">
                     <div className="md:w-[40%]">
-                        <h3 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug text-right mb-3 ">
+                        <h3 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug md:text-right text-center mb-3 md:border-r-8 border-r-0 border-primary pr-1">
                             Who Are We
                         </h3>
                     </div>
-                    <div className="md:w-[60%]">
+                    <div className="md:w-[60%] md:text-left text-center">
                         <p>
                             We’re a team of seasoned education professionals and
                             alumni of top-tier foreign universities from Canada,
@@ -37,13 +37,13 @@ export default function AboutUsPage() {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-row-reverse gap-x-3 items-center">
+                <div className="flex flex-col md:flex-row-reverse gap-x-6 items-center">
                     <div className="md:w-[40%]">
-                        <h3 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug mb-3">
+                        <h3 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug mb-3 md:text-left text-center md:border-l-8 border-l-0 border-primary pl-1">
                             Why did we decide to start B2W Initiative?
                         </h3>
                     </div>
-                    <div className="md:w-[60%] text-right">
+                    <div className="md:w-[60%] md:text-right text-center">
                         <p>
                             Numerous studies have surmised that graduate
                             unemployment in Bangladesh is one of the highest in

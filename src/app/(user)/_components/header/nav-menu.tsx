@@ -52,7 +52,7 @@ export default function NavMenu() {
                         );
                     })}
                 </ul> */}
-                <div className=" flex justify-end gap-x-3">
+                <div className=" flex md:justify-end justify-center items-center md:flex-row flex-col gap-3 w-full md:w-fit">
                     <BookConsultationBtn />
                     <AccessYourProfileBtn />
                 </div>
