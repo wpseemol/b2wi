@@ -21,9 +21,9 @@ export default function AboutUsPage() {
             </section>
 
             <section className="space-y-10 mb-14 mx-auto md:px-0 px-2">
-                <div className="flex md:flex-row flex-col gap-x-6 items-center">
+                <div className="flex md:flex-row flex-col gap-x-6 items-center group">
                     <div className="md:w-[40%]">
-                        <h3 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug md:text-right text-center mb-3 md:border-r-8 border-r-0 border-primary pr-1">
+                        <h3 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug md:text-right text-center mb-3 md:border-r-8 group-hover:md:border-r-[10px] duration-200 border-r-0 border-primary dark:border-white pr-1">
                             Who Are We
                         </h3>
                     </div>
@@ -37,9 +37,9 @@ export default function AboutUsPage() {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-col md:flex-row-reverse gap-x-6 items-center">
+                <div className="flex flex-col md:flex-row-reverse gap-x-6 items-center group">
                     <div className="md:w-[40%]">
-                        <h3 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug mb-3 md:text-left text-center md:border-l-8 border-l-0 border-primary pl-1">
+                        <h3 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug mb-3 md:text-left text-center md:border-l-8 group-hover:md:border-l-[10px] duration-200 border-l-0 border-primary dark:border-white pl-1">
                             Why did we decide to start B2W Initiative?
                         </h3>
                     </div>
