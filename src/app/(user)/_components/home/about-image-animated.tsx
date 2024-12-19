@@ -16,7 +16,9 @@ export default function AboutImageAnimated() {
             height={537}
             alt="Project image"
             className={`w-full sm:h-[300px] rounded-xl object-cover object-center  ${
-                inView ? 'animate-jump animate-once' : ''
+                inView
+                    ? 'animate-jump-in animate-once animate-duration-600'
+                    : ''
             }`}
         />
     );

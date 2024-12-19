@@ -63,4 +63,20 @@ const categoryHelp: CategoryHelpType[] = [
         description:
             'We also offer resources to help you find safe, convenient, and affordable housing, so you can focus on your studies without the stress of relocation.',
     },
+    {
+        id: 7,
+
+        title: 'Travel Assistance',
+        imageUrl: 'Travel Assistance.webp',
+        description:
+            'Simplify your study abroad journey with our expert travel planning and support.',
+    },
+    {
+        id: 8,
+
+        title: 'Scholarship Assistance',
+        imageUrl: 'Scholarship Assistance.webp',
+        description:
+            'Unlock funding opportunities with personalized guidance to secure scholarships for your education.',
+    },
 ];
