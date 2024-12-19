@@ -81,13 +81,13 @@ const skills: skills[] = [
     },
     {
         id: 7,
-        slug: '#',
+        slug: 'how-do-we-help',
         imgUrl: 'Travel Assistance.webp',
         title: 'Travel Assistance',
     },
     {
         id: 8,
-        slug: '#',
+        slug: 'how-do-we-help',
         imgUrl: 'Scholarship Assistance.webp',
         title: 'Scholarship Assistance',
     },

@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 import Link from 'next/link';
+import AboutImageAnimated from './about-image-animated';
 
 export default function AboutSection() {
     return (
@@ -10,13 +10,7 @@ export default function AboutSection() {
         >
             <div className="md:w-[30rem] flex justify-end ">
                 <figure className="w-full ">
-                    <Image
-                        src="/images/About Us - Home Page.png"
-                        width={515}
-                        height={537}
-                        alt="Project image"
-                        className="w-full sm:h-[300px] rounded-xl object-cover object-center animate-jump-in animate-once"
-                    />
+                    <AboutImageAnimated />
                 </figure>
             </div>
             <div className="md:w-[30rem] space-y-5">
