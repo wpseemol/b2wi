@@ -9,7 +9,7 @@ export default function AssessmentPage() {
             <section className="text-center py-5 sm:mb-8">
                 <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug">
                     Profile
-                    <span className="text-primary"> Assessment</span>.
+                    <span className="text-primary"> Assessment</span>
                 </h2>
                 <p className="font-normal text-neutral-900/85 dark:text-neutral-100/90">
                     Ready to embark on your global academic journey? Our team is
