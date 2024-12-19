@@ -1,8 +1,8 @@
 'use client';
+import TestimonialContentCard from '@/components/testimonial-content-card';
 import { testimonials } from '@/lib/db/testimonial-data';
 import Glide from '@glidejs/glide';
 import { useEffect, useState } from 'react';
-import TestimonialContent from './testimonial-content';
 
 export default function TestimonialSlider() {
     const [loading, setLoading] = useState(true);
@@ -42,22 +42,26 @@ export default function TestimonialSlider() {
             <div
                 className={`glide-04 relative w-full ${
                     loading ? 'opacity-0' : ''
-                }`}>
+                }`}
+            >
                 {/*    <!-- Controls --> */}
                 <div
                     className="flex w-full items-center justify-end gap-2 p-4"
-                    data-glide-el="controls">
+                    data-glide-el="controls"
+                >
                     <button
                         className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-white/20 text-slate-700 transition duration-300 hover:border-slate-900 hover:text-slate-900 dark:text-white focus-visible:outline-none lg:h-12 lg:w-12"
                         data-glide-dir="<"
-                        aria-label="prev slide">
+                        aria-label="prev slide"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
                             stroke="currentColor"
-                            className="h-5 w-5">
+                            className="h-5 w-5"
+                        >
                             <title>prev slide</title>
                             <path
                                 strokeLinecap="round"
@@ -69,14 +73,16 @@ export default function TestimonialSlider() {
                     <button
                         className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-white/20 text-slate-700 transition duration-300 hover:border-slate-900 hover:text-slate-900 dark:text-white focus-visible:outline-none lg:h-12 lg:w-12"
                         data-glide-dir=">"
-                        aria-label="next slide">
+                        aria-label="next slide"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
                             stroke="currentColor"
-                            className="h-5 w-5">
+                            className="h-5 w-5"
+                        >
                             <title>next slide</title>
                             <path
                                 strokeLinecap="round"
@@ -91,11 +97,7 @@ export default function TestimonialSlider() {
                     <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
                         {testimonials.map((tCon) => (
                             <li key={tCon.id}>
-                                <TestimonialContent
-                                    description={tCon.text}
-                                    name={tCon.name}
-                                    componyName={tCon.title}
-                                />
+                                <TestimonialContentCard content={tCon} />
                             </li>
                         ))}
                     </ul>

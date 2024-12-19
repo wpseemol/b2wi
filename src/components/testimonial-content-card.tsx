@@ -1,7 +1,7 @@
 import { Testimonial } from '@/lib/db/testimonial-data';
 import Link from 'next/link';
 
-export default function SuccessStoriesTestimonialsCard({
+export default function TestimonialContentCard({
     content,
 }: {
     content: Testimonial;
@@ -9,7 +9,7 @@ export default function SuccessStoriesTestimonialsCard({
     return (
         <>
             {/*      <!-- Component: Elevated simple base sized testimonial --> */}
-            <div className="group overflow-hidden bg-white dark:bg-transparent rounded shadow-xl  text-slate-500 shadow-slate-200 dark:shadow-black border border-neutral-300/20 min-h-[300px] hover:shadow-2xl duration-200">
+            <div className="group overflow-hidden bg-white dark:bg-transparent rounded shadow-2xl text-slate-500 shadow-slate-200 dark:shadow-black border border-neutral-300/20 min-h-[300px]">
                 <div className="relative md:p-6 p-2">
                     <figure className="relative z-10">
                         <blockquote className="p-6 text-lg leading-relaxed">
@@ -23,7 +23,7 @@ export default function SuccessStoriesTestimonialsCard({
                                     {content.name}
                                 </span>
                                 <cite className="not-italic">
-                                    <Link href="#">{content.title}</Link>
+                                    <Link href="#">{content.university}</Link>
                                 </cite>
                             </div>
                         </figcaption>

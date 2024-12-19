@@ -10,7 +10,7 @@ export default function MediaCoveragePage() {
 
             <section className="text-center py-5 container mx-auto">
                 <h2 className="text-neutral-900/85 dark:text-neutral-100 sm:text-[52px] text-3xl font-bold leading-snug">
-                    B2WI In the News.
+                    B2WI In the News
                 </h2>
                 <p className="font-normal text-neutral-800/80 dark:text-neutral-100 text-xl">
                     Take advantage of the experiential-learning opportunities
