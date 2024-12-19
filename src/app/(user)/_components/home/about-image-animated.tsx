@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 export default function AboutImageAnimated() {
     const { ref, inView } = useInView({
         triggerOnce: true, // Animation triggers only once
-        threshold: 0.2, // Animation starts when 50% of the component is visible
+        threshold: 1, // Animation starts when 50% of the component is visible
     });
 
     return (
