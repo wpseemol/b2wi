@@ -22,11 +22,13 @@ export default function OurSkillSection() {
                                     backgroundImage: `url('/images/services/${skill.imgUrl}')`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
-                                }}>
+                                }}
+                            >
                                 <div
                                     className=" w-full h-full flex items-end justify-center pb-6 text-neutral-100/90 text-2xl font-semibold rounded-2xl
                                 bg-custom-gradient
-                                ">
+                                "
+                                >
                                     <h2 className="text-center">
                                         {skill.title}
                                     </h2>
@@ -76,6 +78,18 @@ const skills: skills[] = [
         slug: 'how-do-we-help',
         imgUrl: 'Accommodation Assistance 6.png',
         title: 'Accommodation Assistance',
+    },
+    {
+        id: 7,
+        slug: '#',
+        imgUrl: 'Travel Assistance.webp',
+        title: 'Travel Assistance',
+    },
+    {
+        id: 8,
+        slug: '#',
+        imgUrl: 'Scholarship Assistance.webp',
+        title: 'Scholarship Assistance',
     },
     // {
     //     id: 7,

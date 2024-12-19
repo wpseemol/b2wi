@@ -8,16 +8,16 @@ export default function HeroSection() {
                 backgroundImage: `url("/images/hero/Hero section.png")`,
             }}
         >
-            <div className="w-full min-h-[430px] bg-neutral-900/45">
-                <div className="container mx-auto md:px-0 px-2  text-white flex flex-col justify-center md:gap-6 gap-3 min-h-[420px]">
+            <div className="w-full min-h-[430px] bg-neutral-900/45 overflow-hidden">
+                <div className="container mx-auto md:px-0 px-2  text-white flex flex-col justify-center md:gap-6 gap-3 min-h-[420px] ">
                     {/* <h3 className="text-2xl font-semibold">
                         Ignite Your Potential with
                     </h3> */}
-                    <h2 className="sm:text-6xl md:text-5xl text-4xl font-semibold">
+                    <h2 className="sm:text-6xl md:text-5xl text-4xl font-semibold animate-fade-right animate-once">
                         Bangladeshi Talent.
                         <br /> Global Aspiration.
                     </h2>
-                    <p className="text-base font-normal">
+                    <p className="text-base font-normal animate-fade-right animate-once">
                         Whether you’re a student or a professional, at B2WI,{' '}
                         <br />
                         we’re empowering Bangladeshi talent to go global
@@ -37,7 +37,7 @@ export default function HeroSection() {
                         <Link href={'/about-us'}>
                             <button
                                 type="submit"
-                                className="flex justify-center items-center bg-primary/85 duration-150 px-6 py-4 rounded-sm gap-1 font-medium dark:border-white hover:dark:border-neutral-900 hover:bg-neutral-100/85 border border-[#013f6b] hover:text-neutral-900/90 hover:font-medium hover:border-neutral-900/90"
+                                className="flex justify-center items-center bg-primary/85 duration-150 px-6 py-4 rounded-sm gap-1 font-medium dark:border-white hover:dark:border-neutral-900 hover:bg-neutral-100/85 border border-[#013f6b] hover:text-neutral-900/90 hover:font-medium hover:border-neutral-900/90 animate-fade-right animate-once"
                             >
                                 Learn More
                             </button>
