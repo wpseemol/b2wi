@@ -17,11 +17,15 @@ export default function HelpCategoryCard({
                         height={380}
                     />
                 </figure>
-                <div className="md:px-5 -pb-5 p-2 flex flex-col justify-center items-center absolute group-hover:top-0 2xl:top-[12.7rem] sm:top-[14.8rem] top-[11.5rem] left-0 duration-200 group-hover:bg-sky-900/75 group-hover:text-white group-hover:w-full group-hover:h-full ">
-                    <h3 className=" h-12 flex items-center group-hover:sm:text-2xl group-hover:text-xl group-hover:font-semibold group-hover:text-neutral-900/85 group-hover:text-white group-hover:dark:text-neutral-100/85 duration-150 text-center group-hover:mb-3">
+                <div className="md:px-5 -pb-5 p-2 flex flex-col justify-center items-center absolute group-hover:top-0 2xl:top-[12.7rem] sm:top-[14.9rem] top-[11.5rem] left-0 duration-200 group-hover:bg-sky-900/75 group-hover:text-white group-hover:w-full group-hover:h-full ">
+                    <h3
+                        className=" h-12 flex items-center
+                    group-hover:2xl:text-xl
+                    group-hover:sm:text-2xl group-hover:text-xl group-hover:font-semibold group-hover:text-neutral-900/85 group-hover:text-white group-hover:dark:text-neutral-100/85 duration-150 text-center group-hover:mb-3"
+                    >
                         {content.title}
                     </h3>
-                    <p className="text-center sm:font-medium text-sm sm:text-base group-hover:text-white text-neutral-800/80 dark:text-neutral-100/85">
+                    <p className="text-center sm:font-medium 2xl:font-normal text-sm sm:text-base 2xl:text-sm group-hover:text-white text-neutral-800/80 dark:text-neutral-100/85">
                         {content.description}
                     </p>
                 </div>

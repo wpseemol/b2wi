@@ -10,11 +10,14 @@ export default function HowDoWeHelpPage() {
             </section>
 
             <section className="text-center py-5 mb-5 container mx-auto">
-                <h2 className="text-neutral-900/85 sm:text-[52px] text-3xl font-bold leading-snug">
+                <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug">
                     How Do We
-                    <span className="text-primary"> Help</span>
+                    <span className="text-primary dark:text-blue-300">
+                        {' '}
+                        Help
+                    </span>
                 </h2>
-                <p className="font-normal text-neutral-800/80">
+                <p className="font-normal text-neutral-800/80 dark:text-neutral-200/85">
                     At B2W, we take a holistic approach to ensure you receive
                     support at every stage of your academic journey.
                     <br /> This is how we support our aspirants:
