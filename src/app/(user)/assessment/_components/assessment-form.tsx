@@ -1,14 +1,18 @@
 export default function AssessmentForm() {
     return (
-        <section className="sm:h-[90rem] h-[110rem] ">
+        <section className="scrollbar-thin">
             <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSfToODG_bqRxfFk9UjlVS0RfdHQnQRbHewMhI72nh4bMjt4Zw/viewform?embedded=true"
-                width="100%"
+                src="https://forms.zohopublic.com/beproconsultancyltd1/form/StudentInformationFormB2WIBePro3rdCohort2024/formperma/_5gVC_StoXMM-kOJjPXTSxvF79vB9tz2WEFFIcEDGjQ"
+                // width="100%"
                 height="100%"
+                style={{
+                    width: '100%',
+                    border: 'none',
+                }}
                 frameBorder={0}
                 marginHeight={0}
                 marginWidth={0}
-                className=""
+                className="scrollbar-thin h-[555px]"
             >
                 Loading…
             </iframe>

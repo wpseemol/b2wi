@@ -3,10 +3,12 @@ import AssessmentForm from './_components/assessment-form';
 
 export default function AssessmentPage() {
     return (
-        <main className="container mx-auto">
-            <BreadcrumbFirstLink currentPageName="Assessment" />
+        <main>
+            <section className="container mx-auto">
+                <BreadcrumbFirstLink currentPageName="Assessment" />
+            </section>
 
-            <section className="text-center py-5 sm:mb-8">
+            <section className="text-center py-5 sm:mb-8 container mx-auto">
                 <h2 className="text-neutral-900/85 dark:text-white sm:text-[52px] text-3xl font-bold leading-snug">
                     Profile
                     <span className="text-primary"> Assessment</span>
