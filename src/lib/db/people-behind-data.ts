@@ -36,7 +36,7 @@ export const peopleBehind: PeopleBehind[] = [
         id: 5,
         name: 'Sameer Ghazi Rahman',
         socialLink: 'https://www.linkedin.com/in/sgr1981/',
-        imageUrl: 'Sameer Ghazi Rahman image.png',
+        imageUrl: 'Sameer Ghazi Rahman profile picture.jpg',
         description:
             '<p>Managing Director of Sunshine Education Bangladesh Western Australia (SEBWA), Principal at Sunshine Grammar School, and Founder & CEO of Global Education Expert, Sameer brings extensive expertise in international education and student counseling. With a deep understanding of education management and global study placements, he plays a pivotal role at B2WI in guiding Bangladeshi students through their academic journeys abroad. His leadership and strategic insights in study and job placements empower students to represent Bangladesh on the global stage, in line with B2WI’s mission of building a network of Bangladeshi leaders worldwide.</p>',
     },
