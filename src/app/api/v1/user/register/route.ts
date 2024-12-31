@@ -2,7 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
     try {
-        console.log(request.body);
+        const body = await request.json();
+
+        return NextResponse.json(
+            {
+                massage: 'success full created',
+                body: JSON.stringify(body),
+            },
+            {
+                statue: 201,
+            }
+        );
     } catch (error) {
         console.error(error);
         return NextResponse.json(
