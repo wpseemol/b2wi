@@ -20,8 +20,32 @@ export default function SingUpForm() {
         },
     });
 
-    function onSubmit(values: z.infer<typeof registerForm>) {
-        console.log('onsubmit:', values);
+    async function onSubmit(values: z.infer<typeof registerForm>) {
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASS_URL}api/v1/user/register`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(values),
+                }
+            );
+
+            console.log(
+                'url:',
+                `${process.env.NEXT_PUBLIC_BASS_URL}api/v1/user/register`
+            );
+
+            console.log('response: ', response);
+
+            const isCreated = await response.json();
+
+            console.log('isCreated:', isCreated);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
