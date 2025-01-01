@@ -34,7 +34,11 @@ export async function POST(request: NextRequest) {
                 from: 'onboarding@resend.dev',
                 to: email,
                 subject: 'Confirm your B2WI account',
-                react: EmailTemplate({ message: `verification code: ${otp}` }),
+                react: EmailTemplate({
+                    otp,
+                    brandName: 'B2WI',
+                    confirmLink: `${process.env.NEXT_PUBLIC_BASS_URL}confirm-account?username=${existingUser.username}&token=${otp}`,
+                }),
             });
 
             return NextResponse.json(
@@ -43,7 +47,7 @@ export async function POST(request: NextRequest) {
                     username: existingUser.username,
                     mailSend: JSON.stringify(mailSend),
                 },
-                { status: 400 }
+                { status: 200 }
             );
         }
 
@@ -53,7 +57,11 @@ export async function POST(request: NextRequest) {
             from: 'onboarding@resend.dev',
             to: email,
             subject: 'Confirm your B2WI account',
-            react: EmailTemplate({ message: `verification code: ${otp}` }),
+            react: EmailTemplate({
+                otp,
+                brandName: 'B2WI',
+                confirmLink: `${process.env.NEXT_PUBLIC_BASS_URL}confirm-account?username=${newUser.username}&token=${otp}`,
+            }),
         });
 
         return NextResponse.json(

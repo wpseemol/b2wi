@@ -9,11 +9,31 @@ export default async function ConfirmAccountPage({
 }) {
     // Search params empty got to not fond page.
 
-    const { username } = await searchParams;
+    const { username, token } = await searchParams;
 
     if (!username) {
         notFound();
         return null; // Required to avoid rendering further
+    }
+
+    if (token) {
+        const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BASS_URL}api/v1/user/confirm-otp`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username,
+                    otp: token,
+                }),
+            }
+        );
+
+        const isVerified = await response.json();
+
+        console.log('response page:', isVerified);
     }
 
     return (

@@ -7,10 +7,18 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { useToast } from '@/components/hooks/use-toast';
 import { FormControl, FormItem, FormMessage } from '@/components/ui/form';
+import { ToastAction } from '@/components/ui/toast';
+import { Toaster } from '@/components/ui/toaster';
+import { useRouter } from 'next/navigation';
 
 export default function SingUpForm() {
     const [loading, setLoading] = useState(false);
+
+    const router = useRouter();
+
+    const { toast } = useToast();
 
     const form = useForm<z.infer<typeof registerForm>>({
         resolver: zodResolver(registerForm),
@@ -36,11 +44,37 @@ export default function SingUpForm() {
             console.log('response: ', response);
 
             const isCreated = await response.json();
-            //confirm-account?username=seemol-chakroborti
 
-            console.log('isCreated:', isCreated);
+            if (response.ok) {
+                if (isCreated.mailSend.error) {
+                    // user created but email some reason email can't send.
+                    toast({
+                        variant: 'destructive',
+                        title: 'Uh oh! Something went wrong.',
+                        description:
+                            'Account created, but verification email failed to send. Please try again later.',
+                        action: (
+                            <ToastAction altText="Try again">
+                                Try again
+                            </ToastAction>
+                        ),
+                    });
+                }
+
+                router.push(`/confirm-account?username=${isCreated.username}`);
+            }
+
+            //confirm-account?username=seemol-chakroborti
         } catch (error) {
             console.error(error);
+            toast({
+                variant: 'destructive',
+                title: 'Uh oh! Something went wrong.',
+                description: 'There was a problem with your request.',
+                action: (
+                    <ToastAction altText="Try again">Try again</ToastAction>
+                ),
+            });
         }
     }
 
@@ -117,6 +151,7 @@ export default function SingUpForm() {
                     </div>
                 </form>
             </Form>
+            <Toaster />
         </section>
     );
 }
