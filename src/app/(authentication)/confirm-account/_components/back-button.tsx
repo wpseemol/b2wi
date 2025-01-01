@@ -1,7 +1,13 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 export default function BackButton() {
+    const router = useRouter();
+
     return (
         <button
-            onClick={() => router.back()}
+            onClick={() => router.push('/signup')}
             className="flex items-center text-blue-500 hover:text-blue-600 mb-4"
         >
             <svg
