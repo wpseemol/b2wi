@@ -49,7 +49,7 @@ export default function SingUpForm() {
                 if (isCreated.mailSend.error) {
                     // user created but email some reason email can't send.
                     toast({
-                        variant: 'destructive',
+                        variant: 'success',
                         title: 'Uh oh! Something went wrong.',
                         description:
                             'Account created, but verification email failed to send. Please try again later.',
@@ -60,6 +60,13 @@ export default function SingUpForm() {
                         ),
                     });
                 }
+
+                toast({
+                    variant: 'success',
+                    title: 'Registration Successful!',
+                    description:
+                        'Your account has been created. Please check your email to verify your account.',
+                });
 
                 router.push(`/confirm-account?username=${isCreated.username}`);
             }
