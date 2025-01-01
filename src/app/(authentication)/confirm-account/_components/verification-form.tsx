@@ -1,10 +1,13 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { useRef } from 'react';
 
 export default function VerificationForm() {
     const boxArray = [1, 2, 3, 4, 5, 6];
     const inputRefs = useRef<HTMLInputElement[]>([]);
+
+    const searchParams = useSearchParams();
 
     function handleInputChange(
         event: React.ChangeEvent<HTMLInputElement>,
@@ -48,13 +51,35 @@ export default function VerificationForm() {
             .map((input) => input?.value || '')
             .join('');
 
-        console.log('Submitted OTP:', otp);
+        if (otp.length < boxArray.length) {
+            alert('Please fill in all the OTP fields before submitting.');
+            return;
+        }
 
-        // try {
+        try {
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_BASS_URL}api/v1/user/confirm-otp`,
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: searchParams.username,
+                        otp,
+                    }),
+                }
+            );
 
-        // } catch (error) {
+            console.log('response: ', response);
 
-        // }
+            const isCreated = await response.json();
+            //confirm-account?username=seemol-chakroborti
+
+            console.log('isCreated:', isCreated);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (

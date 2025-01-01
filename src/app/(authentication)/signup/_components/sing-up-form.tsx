@@ -33,11 +33,6 @@ export default function SingUpForm() {
                 }
             );
 
-            console.log(
-                'url:',
-                `${process.env.NEXT_PUBLIC_BASS_URL}api/v1/user/register`
-            );
-
             console.log('response: ', response);
 
             const isCreated = await response.json();
