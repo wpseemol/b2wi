@@ -77,6 +77,13 @@ export default function VerificationForm() {
             //confirm-account?username=seemol-chakroborti
 
             console.log('isCreated:', isCreated);
+
+            // Reset form data
+            inputRefs.current.forEach((input) => {
+                if (input) {
+                    input.value = '';
+                }
+            });
         } catch (error) {
             console.error(error);
         }
