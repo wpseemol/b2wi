@@ -53,12 +53,8 @@ export default function SingUpForm() {
                         title: 'Uh oh! Something went wrong.',
                         description:
                             'Account created, but verification email failed to send. Please try again later.',
-                        action: (
-                            <ToastAction altText="Try again">
-                                Try again
-                            </ToastAction>
-                        ),
                     });
+                    return;
                 }
 
                 toast({
