@@ -1,6 +1,8 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/hooks/use-toast';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useRef } from 'react';
 
 export default function VerificationForm() {
@@ -8,6 +10,10 @@ export default function VerificationForm() {
     const inputRefs = useRef<HTMLInputElement[]>([]);
 
     const searchParams = useSearchParams();
+
+    const router = useRouter();
+
+    const { toast } = useToast();
 
     function handleInputChange(
         event: React.ChangeEvent<HTMLInputElement>,
@@ -65,54 +71,63 @@ export default function VerificationForm() {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        username: searchParams.username,
+                        username: searchParams.get('username'),
                         otp,
                     }),
                 }
             );
 
-            console.log('response: ', response);
+            const isVerified = await response.json();
 
-            const isCreated = await response.json();
+            if (response.ok) {
+                toast({
+                    variant: 'success',
+                    title: 'Verification Successful!',
+                    description: isVerified.massage,
+                });
+
+                router.push(`/login`);
+
+                // Reset form data
+                inputRefs.current.forEach((input) => {
+                    if (input) {
+                        input.value = '';
+                    }
+                });
+            }
             //confirm-account?username=seemol-chakroborti
-
-            console.log('isCreated:', isCreated);
-
-            // Reset form data
-            inputRefs.current.forEach((input) => {
-                if (input) {
-                    input.value = '';
-                }
-            });
         } catch (error) {
             console.error(error);
         }
     }
 
     return (
-        <form className="mt-6" onSubmit={verificationSubmit}>
-            <div className="flex space-x-2 justify-center">
-                {boxArray.map((item, index) => (
-                    <input
-                        key={item}
-                        type="text"
-                        maxLength={1}
-                        ref={(el) => {
-                            if (el) inputRefs.current[index] = el;
-                        }}
-                        onChange={(e) => handleInputChange(e, index)}
-                        onPaste={handlePaste}
-                        className="sm:w-12 w-10 sm:h-12 h-10 text-center border border-gray-300 rounded-md shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    />
-                ))}
-            </div>
+        <>
+            <form className="mt-6" onSubmit={verificationSubmit}>
+                <div className="flex space-x-2 justify-center">
+                    {boxArray.map((item, index) => (
+                        <input
+                            key={item}
+                            type="text"
+                            maxLength={1}
+                            ref={(el) => {
+                                if (el) inputRefs.current[index] = el;
+                            }}
+                            onChange={(e) => handleInputChange(e, index)}
+                            onPaste={handlePaste}
+                            className="sm:w-12 w-10 sm:h-12 h-10 text-center border border-gray-300 rounded-md shadow-sm text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        />
+                    ))}
+                </div>
 
-            <button
-                type="submit"
-                className="w-full mt-6 bg-blue-500 text-white py-2 rounded-md shadow-lg hover:bg-blue-600 transition duration-300"
-            >
-                Verify OTP
-            </button>
-        </form>
+                <button
+                    type="submit"
+                    className="w-full mt-6 bg-blue-500 text-white py-2 rounded-md shadow-lg hover:bg-blue-600 transition duration-300"
+                >
+                    Verify OTP
+                </button>
+            </form>
+            <Toaster />
+        </>
     );
 }
