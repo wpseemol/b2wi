@@ -32,16 +32,16 @@ export async function POST(request: NextRequest) {
 
             const mailSend = await sendEmails({
                 from: 'onboarding@resend.dev',
-                to: 'wpseemol@gmail.com',
-                subject: 'verification code',
+                to: email,
+                subject: 'Confirm your B2WI account',
                 react: EmailTemplate({ message: `verification code: ${otp}` }),
             });
-            console.log('mail send:', mailSend);
 
             return NextResponse.json(
                 {
                     message: 'Please check your email to verified',
                     username: existingUser.username,
+                    mailSend: JSON.stringify(mailSend),
                 },
                 { status: 400 }
             );
@@ -51,16 +51,16 @@ export async function POST(request: NextRequest) {
 
         const mailSend = await sendEmails({
             from: 'onboarding@resend.dev',
-            to: 'wpseemol@gmail.com',
-            subject: 'Hello World',
+            to: email,
+            subject: 'Confirm your B2WI account',
             react: EmailTemplate({ message: `verification code: ${otp}` }),
         });
-        console.log('mail send:', mailSend);
 
         return NextResponse.json(
             {
                 massage: 'success full created',
                 username: newUser.username,
+                mailSend: JSON.stringify(mailSend),
             },
             {
                 status: 201,
