@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import BackButton from './_components/back-button';
 import VerificationForm from './_components/verification-form';
 
@@ -31,9 +31,9 @@ export default async function ConfirmAccountPage({
             }
         );
 
-        const isVerified = await response.json();
-
-        console.log('response page:', isVerified);
+        if (response.ok) {
+            redirect('/login');
+        }
     }
 
     return (
