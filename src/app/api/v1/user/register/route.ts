@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
                 message: 'internal server error.',
             },
             {
-                statue: 500,
+                status: 500,
             }
         );
     }
