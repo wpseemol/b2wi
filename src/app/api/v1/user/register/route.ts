@@ -1,4 +1,6 @@
+import EmailTemplate from '@/components/email-template';
 import { connectMongoDB } from '@/db/mongoose-connect';
+import { sendEmails } from '@/lib/email/emails';
 import { User } from '@/lib/schema/mongoose/user/user';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -28,6 +30,14 @@ export async function POST(request: NextRequest) {
             existingUser.expireTime = now; // Update the expiry time
             await existingUser.save(); // Save the updated user document
 
+            const mailSend = await sendEmails({
+                from: 'onboarding@resend.dev',
+                to: 'wpseemol@gmail.com',
+                subject: 'verification code',
+                react: EmailTemplate({ message: `verification code: ${otp}` }),
+            });
+            console.log('mail send:', mailSend);
+
             return NextResponse.json(
                 {
                     message: 'Please check your email to verified',
@@ -38,6 +48,14 @@ export async function POST(request: NextRequest) {
         }
 
         const newUser = await User.create({ fullName, email, otp });
+
+        const mailSend = await sendEmails({
+            from: 'onboarding@resend.dev',
+            to: 'wpseemol@gmail.com',
+            subject: 'Hello World',
+            react: EmailTemplate({ message: `verification code: ${otp}` }),
+        });
+        console.log('mail send:', mailSend);
 
         return NextResponse.json(
             {
