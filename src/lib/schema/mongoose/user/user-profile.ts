@@ -16,7 +16,6 @@ import mongoose from 'mongoose';
  */
 interface IUserProfile extends mongoose.Document {
     userId: mongoose.Schema.Types.ObjectId; // Reference to the User collection
-    fullName: string;
     bio: string;
     picture?: string | null; // Optional profile picture URL
     address: {
@@ -35,10 +34,7 @@ const userProfileSchema = new mongoose.Schema<IUserProfile>(
             required: true,
             unique: true, // Ensures one profile per user
         },
-        fullName: {
-            type: String,
-            required: true,
-        },
+
         bio: {
             type: String,
             maxlength: 250,

@@ -1,9 +1,33 @@
-import { UserType } from '@/types/user';
-import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 
-interface IUser extends UserType, mongoose.Document {
-    comparePassword: (password: string) => Promise<boolean>;
+interface IUser extends mongoose.Document {
+    // Basic Information
+    username: string; // Unique identifier, default is UUID
+    fullName: string; // User name here
+    email: string; // User email, validated and unique
+    password: string | null; // Password, hashed, not returned in queries
+    phone?: string | null; // Optional phone number in E.164 format
+
+    // Verification Status
+    emailVerificationStatus: 'unverified' | 'pending' | 'verified';
+    phoneVerificationStatus: 'unverified' | 'pending' | 'verified';
+
+    // OTP and Verification Details
+    otp: string; // OTP for verification
+    expireTime: Date; // OTP expiry timestamp
+    emailVerifiedAt: Date | null; // Email verified timestamp
+    phoneVerifiedAt: Date | null; // Phone verified timestamp
+
+    // User Role
+    role: 'student' | 'admin' | 'supper-admin'; // User role with default
+
+    // Metadata
+    registerAt: Date; // User registration timestamp
+    lastLogin: Date | null; // Timestamp of last login
+
+    // Mongoose Timestamps
+    createdAt: Date; // Auto-generated timestamp
+    updatedAt: Date; // Auto-generated timestamp
 }
 
 const userSchema = new mongoose.Schema<IUser>(
@@ -15,6 +39,10 @@ const userSchema = new mongoose.Schema<IUser>(
             minlength: 3,
             maxlength: 50,
             default: () => crypto.randomUUID(),
+        },
+        fullName: {
+            type: String,
+            required: false,
         },
 
         email: {
@@ -33,6 +61,7 @@ const userSchema = new mongoose.Schema<IUser>(
                 /^\+?[1-9]\d{1,14}$/,
                 'Please provide a valid phone number',
             ], // E.164 format
+            default: null,
         },
         password: {
             type: String,
@@ -42,11 +71,34 @@ const userSchema = new mongoose.Schema<IUser>(
             select: false, // Ensures the password is not returned in queries
         },
 
+        otp: {
+            type: String,
+            required: true, // Ensures OTP is provided
+        },
+        expireTime: {
+            type: Date,
+            required: true,
+            default: () => {
+                const now = new Date();
+                now.setMinutes(now.getMinutes() + 60); // Add 60 minutes to current time
+                return now;
+            }, // Sets expiry time to 60 minutes from now
+        },
         role: {
             type: String,
             required: true,
             enum: ['student', 'admin', 'supper-admin'], // Restricted roles
             default: 'student',
+        },
+        emailVerificationStatus: {
+            type: String,
+            enum: ['unverified', 'pending', 'verified'],
+            default: 'unverified',
+        },
+        phoneVerificationStatus: {
+            type: String,
+            enum: ['unverified', 'pending', 'verified'],
+            default: 'unverified',
         },
         registerAt: {
             type: Date,
@@ -61,22 +113,6 @@ const userSchema = new mongoose.Schema<IUser>(
         timestamps: true, // Adds createdAt and updatedAt fields
     }
 );
-
-// Middleware to hash password before saving
-userSchema.pre('save', async function (next) {
-    if (this.isModified('password')) {
-        const salt = await bcrypt.genSalt(10);
-        this.password = await bcrypt.hash(this.password, salt);
-    }
-    next();
-});
-
-// Method to compare password
-userSchema.methods.comparePassword = async function (
-    password: string
-): Promise<boolean> {
-    return bcrypt.compare(password, this.password);
-};
 
 // Create model
 const User = mongoose.models.User || mongoose.model<IUser>('User', userSchema);

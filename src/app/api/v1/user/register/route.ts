@@ -1,6 +1,5 @@
 import { connectMongoDB } from '@/db/mongoose-connect';
 import { User } from '@/lib/schema/mongoose/user/user';
-import { UserVerificationToken } from '@/lib/schema/mongoose/user/verification-token';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
@@ -12,33 +11,41 @@ export async function POST(request: NextRequest) {
         // connect mongodb
         await connectMongoDB();
 
-        // create the user
-        const newUser = await User.create({ email });
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            if (existingUser.emailVerificationStatus === 'verified') {
+                return NextResponse.json(
+                    {
+                        message: 'User already exists Please login.',
+                    },
+                    { status: 400 }
+                );
+            }
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 60); // Set expiry time to 60 minutes from now
 
-        const userProfile = new UserProfile({
-            userId: newUser._id,
-            fullName,
-        });
+            existingUser.otp = otp; // Set the new OTP
+            existingUser.expireTime = now; // Update the expiry time
+            await existingUser.save(); // Save the updated user document
 
-        await userProfile.save();
+            return NextResponse.json(
+                {
+                    message: 'Please check your email to verified',
+                    username: existingUser.username,
+                },
+                { status: 400 }
+            );
+        }
 
-        const userVerificationToken = new UserVerificationToken({
-            userId: newUser._id,
-            otp,
-        });
-
-        await userVerificationToken.save();
+        const newUser = await User.create({ fullName, email, otp });
 
         return NextResponse.json(
             {
                 massage: 'success full created',
-                userProfile: JSON.stringify(userProfile),
-                newUser: JSON.stringify(newUser),
-                userVerificationToken: JSON.stringify(userVerificationToken),
-                otp: otp,
+                username: newUser.username,
             },
             {
-                statue: 201,
+                status: 201,
             }
         );
     } catch (error) {
@@ -55,7 +62,7 @@ export async function POST(request: NextRequest) {
 }
 
 function generateRandomCode(): string {
-    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let code = '';
     for (let i = 0; i < 6; i++) {
         const randomIndex = Math.floor(Math.random() * characters.length);
