@@ -7,10 +7,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { useToast } from '@/components/hooks/use-toast';
 import { FormControl, FormItem, FormMessage } from '@/components/ui/form';
 import { ToastAction } from '@/components/ui/toast';
 import { Toaster } from '@/components/ui/toaster';
+import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 
 export default function SingUpForm() {
