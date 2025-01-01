@@ -41,6 +41,7 @@ export default function SingUpForm() {
             console.log('response: ', response);
 
             const isCreated = await response.json();
+            //confirm-account?username=seemol-chakroborti
 
             console.log('isCreated:', isCreated);
         } catch (error) {

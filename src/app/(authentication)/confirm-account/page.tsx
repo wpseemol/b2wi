@@ -2,18 +2,18 @@ import { notFound } from 'next/navigation';
 import BackButton from './_components/back-button';
 import VerificationForm from './_components/verification-form';
 
-export default function ConfirmAccountPage({
+export default async function ConfirmAccountPage({
     searchParams,
 }: {
-    searchParams: SearchParamsType;
+    searchParams: Promise<{ username: string; token: string }>;
 }) {
     // Search params empty got to not fond page.
 
-    const searchPramsArray = Object.keys(searchParams);
+    const { username } = await searchParams;
 
-    if (!searchPramsArray.includes('username')) {
+    if (!username) {
         notFound();
-        return;
+        return null; // Required to avoid rendering further
     }
 
     return (
@@ -44,9 +44,4 @@ export default function ConfirmAccountPage({
             </section>
         </main>
     );
-}
-
-interface SearchParamsType {
-    username?: string;
-    token?: string;
 }
