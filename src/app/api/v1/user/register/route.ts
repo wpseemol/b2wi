@@ -2,16 +2,29 @@ import EmailTemplate from '@/components/email-template';
 import { connectMongoDB } from '@/db/mongoose-connect';
 import { sendEmails } from '@/lib/email/emails';
 import { User } from '@/lib/schema/mongoose/user/user';
+import bcryptjs from 'bcryptjs';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
     try {
-        const { fullName, email } = await request.json();
+        const { fullName, email, password } = await request.json();
+
+        const hashPassword = await bcryptjs.hashSync(password, 10);
 
         const otp = generateRandomCode();
 
         // connect mongodb
         await connectMongoDB();
+
+        // Validate required fields
+        if (!fullName || !email || !password) {
+            return NextResponse.json(
+                {
+                    message: 'fullname, email, and password are required.',
+                },
+                { status: 400 }
+            );
+        }
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -26,6 +39,8 @@ export async function POST(request: NextRequest) {
             const now = new Date();
             now.setMinutes(now.getMinutes() + 60); // Set expiry time to 60 minutes from now
 
+            existingUser.fullName = fullName; // Set the new OTP
+            existingUser.password = hashPassword; // Set the new OTP
             existingUser.otp = otp; // Set the new OTP
             existingUser.expireTime = now; // Update the expiry time
             await existingUser.save(); // Save the updated user document
@@ -51,7 +66,12 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const newUser = await User.create({ fullName, email, otp });
+        const newUser = await User.create({
+            fullName,
+            email,
+            otp,
+            password: hashPassword,
+        });
 
         const mailSend = await sendEmails({
             from: 'onboarding@resend.dev',

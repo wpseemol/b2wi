@@ -110,7 +110,7 @@ export default function VerificationForm() {
                             key={item}
                             type="text"
                             maxLength={1}
-                            ref={(el) => {
+                            ref={(el: HTMLInputElement | null) => {
                                 if (el) inputRefs.current[index] = el;
                             }}
                             onChange={(e) => handleInputChange(e, index)}

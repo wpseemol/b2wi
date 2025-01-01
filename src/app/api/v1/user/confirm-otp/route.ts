@@ -8,6 +8,17 @@ export async function POST(request: NextRequest) {
 
         await connectMongoDB();
 
+        if (!username || !otp) {
+            return NextResponse.json(
+                {
+                    message: 'Username or Otp are required',
+                },
+                {
+                    status: 400,
+                }
+            );
+        }
+
         const user = await User.findOne({
             username,
         });

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { PiEyeClosedDuotone, PiEyeDuotone } from 'react-icons/pi';
 
 export default function PasswordFiled() {
     const [showPass, setShowPass] = useState(false);
@@ -16,14 +16,14 @@ export default function PasswordFiled() {
                 placeholder="Password"
             />
             {showPass ? (
-                <FaEyeSlash
+                <PiEyeDuotone
                     className="absolute right-3 top-[50%] -translate-y-[50%] cursor-pointer"
                     onClick={() => {
                         setShowPass((prev) => !prev);
                     }}
                 />
             ) : (
-                <FaEye
+                <PiEyeClosedDuotone
                     className="absolute right-3 top-[50%] -translate-y-[50%] cursor-pointer"
                     onClick={() => {
                         setShowPass((prev) => !prev);

@@ -12,6 +12,7 @@ import { ToastAction } from '@/components/ui/toast';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import { PasswordFiled } from './password-filed';
 
 export default function SingUpForm() {
     const [loading, setLoading] = useState(false);
@@ -25,6 +26,7 @@ export default function SingUpForm() {
         defaultValues: {
             fullName: '',
             email: '',
+            password: '',
         },
     });
 
@@ -41,9 +43,8 @@ export default function SingUpForm() {
                 }
             );
 
-            console.log('response: ', response);
-
             const isCreated = await response.json();
+            console.log('response: ', isCreated);
 
             if (response.ok) {
                 if (isCreated.mailSend.error) {
@@ -106,7 +107,6 @@ export default function SingUpForm() {
                                 </FormItem>
                             )}
                         />
-
                         <FormField
                             control={form.control}
                             name="email"
@@ -124,7 +124,8 @@ export default function SingUpForm() {
                                 </FormItem>
                             )}
                         />
-
+                        {/* password filed */}
+                        <PasswordFiled form={form} />
                         {/* password find here  */}
                         {/* <PasswordFiled /> */}
                         {/* <div className="text-right my-4">
@@ -135,13 +136,11 @@ export default function SingUpForm() {
                             Forgot Password?
                         </Link>
                     </div> */}
-
                         <button
                             disabled={form.formState.isSubmitting}
                             className="hidden"
                             onClick={() => setLoading(false)}
                         ></button>
-
                         <button
                             disabled={loading}
                             type="submit"
