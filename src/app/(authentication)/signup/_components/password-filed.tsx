@@ -4,7 +4,7 @@ import {
     FormItem,
     FormMessage,
 } from '@/components/ui/form';
-import { registerForm } from '@/lib/schema/zod/register-form';
+import { registerForm } from '@/lib/schema/zod/register-form-schema';
 import { useEffect, useMemo, useState } from 'react';
 import { UseFormReturn } from 'react-hook-form';
 import { PiEyeClosedDuotone, PiEyeDuotone } from 'react-icons/pi';

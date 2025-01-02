@@ -1,9 +1,8 @@
 'use client';
 
 import { Form, FormField } from '@/components/ui/form';
-import { registerForm } from '@/lib/schema/zod/register-form';
+import { registerForm } from '@/lib/schema/zod/register-form-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -15,8 +14,6 @@ import { useRouter } from 'next/navigation';
 import { PasswordFiled } from './password-filed';
 
 export default function SingUpForm() {
-    const [loading, setLoading] = useState(false);
-
     const router = useRouter();
 
     const { toast } = useToast();
@@ -126,23 +123,9 @@ export default function SingUpForm() {
                         />
                         {/* password filed */}
                         <PasswordFiled form={form} />
-                        {/* password find here  */}
-                        {/* <PasswordFiled /> */}
-                        {/* <div className="text-right my-4">
-                        <Link
-                            href={'/#'}
-                            className="text-primary transition-colors hover:text-primary-500-dark"
-                        >
-                            Forgot Password?
-                        </Link>
-                    </div> */}
+
                         <button
                             disabled={form.formState.isSubmitting}
-                            className="hidden"
-                            onClick={() => setLoading(false)}
-                        ></button>
-                        <button
-                            disabled={loading}
                             type="submit"
                             className="bg-primary text-white font-semibold py-2 px-3 rounded-md hover:bg-neutral-900 transition-all mt-5"
                         >
