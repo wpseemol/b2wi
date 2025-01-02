@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { signIn } from '@/auth/auth';
 import { FormControl, FormItem, FormMessage } from '@/components/ui/form';
 import { loginFormSchema } from '@/lib/schema/zod/login-form-schema';
 import { PiEyeClosedDuotone, PiEyeDuotone } from 'react-icons/pi';
@@ -24,7 +25,8 @@ export default function LoginForm() {
     });
 
     async function onSubmit(values: z.infer<typeof registerForm>) {
-        console.log(values);
+        const isLogin = await signIn('credentials', values);
+        console.log('isLogin: ', isLogin);
     }
 
     return (
