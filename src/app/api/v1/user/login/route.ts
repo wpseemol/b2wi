@@ -5,7 +5,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
     try {
-        const { email, password } = await request.json();
+        const { email, password }: { email: string; password: string } =
+            await request.json();
 
         if (!email || !password) {
             return NextResponse.json(
@@ -20,12 +21,12 @@ export async function POST(request: NextRequest) {
 
         await connectMongoDB();
 
-        const user = await User.findOne(
+        const user: IUserPartial | null | undefined = await User.findOne(
             { email },
             'fullName email role emailVerificationStatus'
         )
             .select('+password')
-            .lean();
+            .lean<IUserPartial | null>();
 
         if (!user) {
             return NextResponse.json(
@@ -38,7 +39,7 @@ export async function POST(request: NextRequest) {
 
         const isPasswordValid = await bcryptjs.compare(password, user.password);
 
-        const userSanitize = {
+        const userSanitize: UserSanitizeType = {
             id: user._id.toString(),
             name: user.fullName,
             email: user.email,
@@ -76,4 +77,21 @@ export async function POST(request: NextRequest) {
             }
         );
     }
+}
+
+export interface UserSanitizeType {
+    id: string;
+    name: string;
+    email: string;
+    role: 'student' | 'admin' | 'supper-admin';
+    emailVerificationStatus: 'unverified' | 'pending' | 'verified';
+}
+
+export interface IUserPartial {
+    _id: string;
+    fullName: string;
+    email: string;
+    password: string;
+    role: 'student' | 'admin' | 'supper-admin';
+    emailVerificationStatus: 'unverified' | 'pending' | 'verified';
 }

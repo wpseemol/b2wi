@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
             await existingUser.save(); // Save the updated user document
 
             const mailSend = await sendEmails({
-                from: 'onboarding@resend.dev',
+                form: 'onboarding@resend.dev',
                 to: email,
                 subject: 'Confirm your B2WI account',
                 react: EmailTemplate({

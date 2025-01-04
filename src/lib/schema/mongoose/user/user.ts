@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-interface IUser extends mongoose.Document {
+export interface IUser extends mongoose.Document {
     // Basic Information
     username: string; // Unique identifier, default is UUID
     fullName: string; // User name here

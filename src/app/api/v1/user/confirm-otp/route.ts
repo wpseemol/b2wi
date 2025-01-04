@@ -34,13 +34,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const now = new Date();
-
-        const diff = now - user.expireTime;
-        const minutes = Math.floor(diff / 1000 / 60);
-
-        console.log('check expire time', minutes);
-        console.log('check expire time');
+        const now: Date = new Date();
 
         if (now > user.expireTime) {
             return NextResponse.json(
