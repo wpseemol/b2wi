@@ -32,8 +32,9 @@ export async function POST(request: NextRequest) {
                 return NextResponse.json(
                     {
                         message: 'User already exists Please login.',
+                        code: 'already-exists',
                     },
-                    { status: 200 }
+                    { status: 409 }
                 );
             }
             const now = new Date();

@@ -11,6 +11,7 @@ import { ToastAction } from '@/components/ui/toast';
 import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import Swal from 'sweetalert2';
 import { PasswordFiled } from './password-filed';
 
 export default function SingUpForm() {
@@ -41,10 +42,12 @@ export default function SingUpForm() {
             );
 
             const isCreated = await response.json();
-            console.log('response: ', isCreated);
+
+            // console.log('response: ', response);
+            // console.log('response: ', isCreated);
 
             if (response.ok) {
-                if (isCreated.mailSend.error) {
+                if (isCreated?.mailSend?.error) {
                     // user created but email some reason email can't send.
                     toast({
                         variant: 'success',
@@ -62,6 +65,18 @@ export default function SingUpForm() {
                 });
 
                 router.push(`/confirm-account?username=${isCreated.username}`);
+            }
+
+            if (response.status === 409) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Already exists',
+                    text: isCreated.message,
+                    showConfirmButton: false,
+                    timer: 2500,
+                }).then(() => {
+                    router.push(`/login`);
+                });
             }
 
             //confirm-account?username=seemol-chakroborti
