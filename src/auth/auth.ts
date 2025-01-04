@@ -1,7 +1,10 @@
+import client from '@/db/db';
+import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import NextAuth, { CredentialsSignin } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+    adapter: MongoDBAdapter(client),
     session: {
         strategy: 'jwt',
     },
@@ -56,6 +59,40 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
         }),
     ],
+
+    callbacks: {
+        async signIn({ user, account }) {
+            if (user.role) {
+                account.role = user.role;
+            }
+
+            return true;
+        },
+
+        async session({ session, token }) {
+            if (token.role) {
+                session.user.role = token.role;
+            }
+
+            if (token.sub) {
+                session.user.id = token.sub;
+            }
+
+            return session;
+        },
+
+        // token, user, session, trigger
+        async jwt({ token, user, session }) {
+            if (user?.role) {
+                token.role = user.role;
+            }
+            if (session?.role) {
+                token.role = session.role;
+            }
+
+            return token;
+        },
+    },
 });
 
 class passwordNotMatch extends CredentialsSignin {

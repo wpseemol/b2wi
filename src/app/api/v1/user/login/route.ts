@@ -20,7 +20,10 @@ export async function POST(request: NextRequest) {
 
         await connectMongoDB();
 
-        const user = await User.findOne({ email }, 'fullName email role')
+        const user = await User.findOne(
+            { email },
+            'fullName email role emailVerificationStatus'
+        )
             .select('+password')
             .lean();
 
@@ -37,9 +40,10 @@ export async function POST(request: NextRequest) {
 
         const userSanitize = {
             id: user._id.toString(),
-            fullName: user.fullName,
+            name: user.fullName,
             email: user.email,
             role: user.role,
+            emailVerificationStatus: user.emailVerificationStatus,
         };
 
         if (!isPasswordValid) {
