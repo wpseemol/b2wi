@@ -28,10 +28,10 @@ export default function LoginForm() {
 
     async function onSubmit(values: z.infer<typeof loginFormSchema>) {
         const isLogin = await signIn('credentials', {
-            redirect: false,
+            redirect: true,
+            redirectTo: '/profile',
             ...values,
         });
-        console.log('isLogin: ', isLogin);
 
         if (isLogin?.error && isLogin.error === 'CredentialsSignin') {
             switch (isLogin.code) {
