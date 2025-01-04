@@ -1,10 +1,7 @@
-import client from '@/db/db';
-import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import NextAuth, { CredentialsSignin } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-    adapter: MongoDBAdapter(client),
     session: {
         strategy: 'jwt',
     },
@@ -23,10 +20,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             name: 'Credentials',
             type: 'credentials',
             credentials: {
-                username: {},
-                password: {},
+                email: { label: 'Email', type: 'text' },
+                password: { label: 'Password', type: 'password' },
             },
-            async authorize(credentials) {
+            async authorize(
+                credentials:
+                    | Partial<Record<'email' | 'password', unknown>>
+                    | undefined
+            ) {
+                if (!credentials?.email || !credentials.password) {
+                    return null;
+                }
                 const response = await fetch(
                     `${process.env.NEXT_PUBLIC_BASS_URL}api/v1/user/login`,
                     {
@@ -63,12 +67,25 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     ],
 
     callbacks: {
-        async signIn({ user, account }) {
-            if (user.role) {
-                account.role = user.role;
+        // async signIn({ user, account, }) {
+        //     if (user.role) {
+        //         if (account) {
+        //             account.role = user.role;
+        //         }
+        //     }
+
+        //     return true;
+        // },
+
+        async jwt({ token, user, session }) {
+            if (user?.role) {
+                token.role = user.role;
+            }
+            if (session?.role) {
+                token.role = session.role;
             }
 
-            return true;
+            return token;
         },
 
         async session({ session, token }) {
@@ -84,16 +101,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         },
 
         // token, user, session, trigger
-        async jwt({ token, user, session }) {
-            if (user?.role) {
-                token.role = user.role;
-            }
-            if (session?.role) {
-                token.role = session.role;
-            }
-
-            return token;
-        },
     },
 });
 

@@ -8,7 +8,7 @@ export interface EmailInfoType {
      * The sender's email address.
      * Example: 'onboarding@resend.dev'
      */
-    form: string;
+    from: string;
 
     /**
      * The recipient's email address.

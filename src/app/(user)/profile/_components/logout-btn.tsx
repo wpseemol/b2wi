@@ -20,9 +20,7 @@ export default function LogoutBtn() {
             </Button>
             <br />
             <br />
-            {/* <Button>
-                <Link href="/login">Login</Link>
-            </Button> */}
+            {/* */}
             <br />
             <br />
             <Button onClick={() => route.refresh()}>refresh</Button>

@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
                     {
                         message: 'User already exists Please login.',
                     },
-                    { status: 400 }
+                    { status: 200 }
                 );
             }
             const now = new Date();
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
             await existingUser.save(); // Save the updated user document
 
             const mailSend = await sendEmails({
-                form: 'onboarding@resend.dev',
+                from: 'onboarding@resend.dev',
                 to: email,
                 subject: 'Confirm your B2WI account',
                 react: EmailTemplate({

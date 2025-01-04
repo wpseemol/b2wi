@@ -58,8 +58,7 @@ export default function SingUpForm() {
                 toast({
                     variant: 'success',
                     title: 'Registration Successful!',
-                    description:
-                        'Your account has been created. Please check your email to verify your account.',
+                    description: isCreated.message,
                 });
 
                 router.push(`/confirm-account?username=${isCreated.username}`);
