@@ -1,20 +1,22 @@
 'use client';
 
 import { Form, FormField } from '@/components/ui/form';
-import { registerForm } from '@/lib/schema/zod/register-form-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import { signIn } from '@/auth/auth';
 import { FormControl, FormItem, FormMessage } from '@/components/ui/form';
+import { useLoginError } from '@/hooks/contexts-hooks/login-error-hook';
 import { loginFormSchema } from '@/lib/schema/zod/login-form-schema';
+import { signIn } from 'next-auth/react';
 import { PiEyeClosedDuotone, PiEyeDuotone } from 'react-icons/pi';
 
 export default function LoginForm() {
     const [showPass, setShowPass] = useState<boolean>(false);
+
+    const { setLoginError } = useLoginError();
 
     const form = useForm<z.infer<typeof loginFormSchema>>({
         resolver: zodResolver(loginFormSchema),
@@ -24,9 +26,28 @@ export default function LoginForm() {
         },
     });
 
-    async function onSubmit(values: z.infer<typeof registerForm>) {
-        const isLogin = await signIn('credentials', values);
+    async function onSubmit(values: z.infer<typeof loginFormSchema>) {
+        const isLogin = await signIn('credentials', {
+            redirect: false,
+            ...values,
+        });
         console.log('isLogin: ', isLogin);
+
+        if (isLogin?.error && isLogin.error === 'CredentialsSignin') {
+            switch (isLogin.code) {
+                case 'notFound':
+                    setLoginError('User not found.');
+                    break;
+                case 'passwordNotPatch':
+                    setLoginError('Email or password is incorrect.');
+                    break;
+                case 'otherError':
+                    setLoginError(
+                        'Something went wrong. Please try again later.'
+                    );
+                    break;
+            }
+        }
     }
 
     return (

@@ -26,9 +26,9 @@ export async function POST(request: NextRequest) {
 
         if (!user) {
             return NextResponse.json(
-                { message: 'Invalid email or password.' },
+                { message: 'User not found.' },
                 {
-                    status: 401,
+                    status: 404,
                 }
             );
         }
