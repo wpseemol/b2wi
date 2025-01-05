@@ -17,7 +17,6 @@ import mongoose from 'mongoose';
 interface IUserProfile extends mongoose.Document {
     userId: mongoose.Schema.Types.ObjectId; // Reference to the User collection
     bio: string;
-    picture?: string | null; // Optional profile picture URL
     address: {
         street: string;
         city: string;
@@ -40,10 +39,7 @@ const userProfileSchema = new mongoose.Schema<IUserProfile>(
             maxlength: 250,
             default: '',
         },
-        picture: {
-            type: String,
-            default: null, // Profile picture URL (optional)
-        },
+
         address: {
             street: { type: String, default: null },
             city: { type: String, default: null },

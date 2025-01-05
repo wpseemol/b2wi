@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
 
         const user: IUserPartial | null | undefined = await User.findOne(
             { email },
-            'fullName email role emailVerificationStatus'
+            'fullName email picture role emailVerificationStatus'
         )
             .select('+password')
             .lean<IUserPartial | null>();
@@ -43,6 +43,7 @@ export async function POST(request: NextRequest) {
             id: user._id.toString(),
             name: user.fullName,
             email: user.email,
+            picture: user.picture,
             role: user.role,
             emailVerificationStatus: user.emailVerificationStatus,
         };
@@ -83,6 +84,7 @@ export interface UserSanitizeType {
     id: string;
     name: string;
     email: string;
+    picture: string | null;
     role: 'student' | 'admin' | 'supper-admin';
     emailVerificationStatus: 'unverified' | 'pending' | 'verified';
 }
@@ -91,6 +93,7 @@ export interface IUserPartial {
     _id: string;
     fullName: string;
     email: string;
+    picture: string | null;
     password: string;
     role: 'student' | 'admin' | 'supper-admin';
     emailVerificationStatus: 'unverified' | 'pending' | 'verified';

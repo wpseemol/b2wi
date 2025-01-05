@@ -7,6 +7,7 @@ export interface IUser extends mongoose.Document {
     email: string; // User email, validated and unique
     password: string | null; // Password, hashed, not returned in queries
     phone?: string | null; // Optional phone number in E.164 format
+    picture: string | null; // Optional profile picture URL
 
     // Verification Status
     emailVerificationStatus: 'unverified' | 'pending' | 'verified';
@@ -69,6 +70,10 @@ const userSchema = new mongoose.Schema<IUser>(
             minlength: 6,
             default: null,
             select: false, // Ensures the password is not returned in queries
+        },
+        picture: {
+            type: String,
+            default: null, // Profile picture URL (optional)
         },
 
         otp: {
