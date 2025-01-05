@@ -67,16 +67,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     ],
 
     callbacks: {
-        // async signIn({ user, account, }) {
-        //     if (user.role) {
-        //         if (account) {
-        //             account.role = user.role;
-        //         }
-        //     }
-
-        //     return true;
-        // },
-
+        // token, user, session, trigger
         async jwt({ token, user, session }) {
             if (user?.role) {
                 token.role = user.role;
@@ -99,8 +90,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
             return session;
         },
-
-        // token, user, session, trigger
     },
 });
 

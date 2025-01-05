@@ -7,23 +7,17 @@ import { useRouter } from 'next/navigation';
 export default function LogoutBtn() {
     const route = useRouter();
 
+    async function handelLogout() {
+        signOut({
+            redirect: false,
+        }).then(() => {
+            route.refresh();
+        });
+    }
+
     return (
         <div>
-            <Button
-                onClick={() =>
-                    signOut({
-                        redirect: false,
-                    })
-                }
-            >
-                Logout {'->'}
-            </Button>
-            <br />
-            <br />
-            {/* */}
-            <br />
-            <br />
-            <Button onClick={() => route.refresh()}>refresh</Button>
+            <Button onClick={handelLogout}>Logout </Button>
         </div>
     );
 }

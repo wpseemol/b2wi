@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
             id: user._id.toString(),
             name: user.fullName,
             email: user.email,
-            picture: user.picture,
+            image: user.picture,
             role: user.role,
             emailVerificationStatus: user.emailVerificationStatus,
         };

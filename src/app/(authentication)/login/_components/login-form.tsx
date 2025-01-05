@@ -11,12 +11,16 @@ import { FormControl, FormItem, FormMessage } from '@/components/ui/form';
 import { useLoginError } from '@/hooks/contexts-hooks/login-error-hook';
 import { loginFormSchema } from '@/lib/schema/zod/login-form-schema';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { PiEyeClosedDuotone, PiEyeDuotone } from 'react-icons/pi';
+import Swal from 'sweetalert2';
 
 export default function LoginForm() {
     const [showPass, setShowPass] = useState<boolean>(false);
 
     const { setLoginError } = useLoginError();
+
+    const router = useRouter();
 
     const form = useForm<z.infer<typeof loginFormSchema>>({
         resolver: zodResolver(loginFormSchema),
@@ -33,7 +37,17 @@ export default function LoginForm() {
             ...values,
         });
 
-        console.log('login is:', isLogin);
+        if (!isLogin?.error) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Login successful',
+                text: "Welcome,You're successfully logged in.",
+                showConfirmButton: false,
+                timer: 2500,
+            }).then(() => {
+                router.push(`/profile`);
+            });
+        }
 
         if (isLogin?.error && isLogin.error === 'CredentialsSignin') {
             switch (isLogin.code) {
