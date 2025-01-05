@@ -84,7 +84,7 @@ export interface UserSanitizeType {
     id: string;
     name: string;
     email: string;
-    picture: string | null;
+    image: string | null;
     role: 'student' | 'admin' | 'supper-admin';
     emailVerificationStatus: 'unverified' | 'pending' | 'verified';
 }
